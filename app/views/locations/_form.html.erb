@@ -1,0 +1,21 @@
+<h1><%= t('.add_location') %></h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= bootstrap_devise_error_messages! %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, autofocus: true, autocomplete: 'address', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit t('.add_location'), class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= render 'devise/shared/links' %>

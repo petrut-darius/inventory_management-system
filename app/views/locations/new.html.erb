@@ -1,0 +1,18 @@
+<h1><%= t('.add_location') %></h1>
+
+<%= form_for @location, url: locations_path, data: { turbo_method: :post} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, autofocus: true, autocomplete: 'address', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Add location", class: 'btn btn-primary' %>
+  </div>
+<% end %>

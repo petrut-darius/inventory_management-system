@@ -1,0 +1,7 @@
+<h1>All the pruchase orders</h1>
+<hr>
+<% @purchase_orders.each do |purchase_order|%>
+<p>From: <%= purchase_order.supplier.name%></p>
+<p>Status: <%= purchase_order.status%></p>
+  <hr>
+<% end %>

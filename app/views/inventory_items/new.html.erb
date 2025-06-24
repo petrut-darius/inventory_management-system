@@ -1,0 +1,18 @@
+<h1><%= t('.add_a_inventory_item') %></h1>
+
+<%= form_for @inventory_item, url: inventory_items_path, data: { turbo_method: :post} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :product_id %>
+    <%= f.collection_select :product_id, @products, :id, :name, { prompt: "Select a product" }, class: "form-select", aria: { label: "Select product" } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location_id %>
+    <%= f.collection_select :location_id, @locations, :id, :name, { prompt: "Select a location" }, class: "form-select"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Add product", class: 'btn btn-primary' %>
+  </div>
+<% end %>

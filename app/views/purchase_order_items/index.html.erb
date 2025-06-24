@@ -1,0 +1,8 @@
+<h1>All the product's ordered</h1>
+<hr>
+<% @purchase_order_items.each do |product_ordered|%>
+  <p>Name: <%= product_ordered.product.name%></p>
+  <p>Quantity: <%= product_ordered.quantity%></p>
+  <p>Total cost: <%= product_ordered.cost_price%></p>
+  <hr>
+<% end %>
