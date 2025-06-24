@@ -1,0 +1,8 @@
+<h1>All the location's</h1>
+<%= render "layouts/obj", obj: @location%>
+<hr>
+<% @locations.each do |location| %>
+  <p>Name: <%= location.name%></p>
+  <p>Address: <%= location.address%></p>
+  <hr>
+<% end %>

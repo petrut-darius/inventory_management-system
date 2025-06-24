@@ -1,0 +1,11 @@
+<h1>All the product's</h1>
+<%= render "layouts/obj", obj: @product%>
+<hr>
+<% @products.each do |product| %>
+  <p>Sku: <%= product.sku%></p>
+  <p>Description: <%= product.description%></p>
+  <p>Reorder_level: <%= product.reorder_level%></p>
+  <p>Price: <%= product.price%></p>
+  <p>Quantity: <%= product.quantity%></p>
+  <hr>
+<% end %>

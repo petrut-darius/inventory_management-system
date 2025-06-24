@@ -1,6 +1,7 @@
 class PurchaseOrdersController < ApplicationController
   def index
     @purchase_orders = PurchaseOrder.all
+    @purchase_order = PurchaseOrder.new
   end
 
   def show

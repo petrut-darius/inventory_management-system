@@ -11,11 +11,11 @@ class LocationPolicy < ApplicationPolicy
   end
 
   def update
-    user.admin?
+    user.admin? || user.manager?
   end
 
   def create?
-    user.admin? || user.manager?
+    user.admin? || user.manager? || user.mama?
   end
 
   class Scope < ApplicationPolicy::Scope

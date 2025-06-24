@@ -1,36 +1,42 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <%= link_to "Inv Mng System", root_path, class: "navbar-brand"%>
+    <%= link_to "Home", root_path, class: "navbar-brand"%>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
         <% if !user_signed_in? %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Action's
-          </a>
+          <% if request.path == user_session_path || request.path == new_user_registration_path%>
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Action's
+            </a>
+          <% else %>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Action's
+            </a>
+          <% end %>
           <ul class="dropdown-menu">
-            <li><%= link_to "Log in!", user_session_path, class: "dropdown-item" %></li>
-            <li><%= link_to "Sing up!", new_user_registration_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Log in!", user_session_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Sing up!", new_user_registration_path, class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
         <% else%>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Product
-          </a>
+          <% if request.path == new_product_path || request.path == products_path%>
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Product
+            </a>
+          <% else %>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Product
+            </a>
+          <% end %>
           <ul class="dropdown-menu">
-            <% if current_user.manager? || current_user.admin?%>
+            <% if current_user.manager? || current_user.admin? || current_user.mama?%>
               <li><%= link_to "Add a product", new_product_path %></li>
             <% end %>
             <li><%= link_to "All the product's", products_path %></li>
@@ -39,11 +45,17 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Location
-          </a>
+          <% if request.path == new_location_path || request.path == locations_path%>
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Location
+            </a>
+          <% else %>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Location
+            </a>
+          <% end %>
           <ul class="dropdown-menu">
-            <% if current_user.manager? || current_user.admin?%>
+            <% if current_user.manager? || current_user.admin? || current_user.mama?%>
               <li><%= link_to "Add a location", new_location_path %></li>
             <% end %>
             <li><%= link_to "All the location's", locations_path %></li>
@@ -51,10 +63,17 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
+        <%if !current_user.mama?%>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Who? Ordered
-          </a>
+          <% if request.path == new_purchase_order_path || request.path == purchase_orders_path%>
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Who? Ordered
+            </a>
+          <% else %>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Who? Ordered
+            </a>
+          <% end %>
           <ul class="dropdown-menu">
             <% if current_user.manager? || current_user.admin?%>
               <li><%= link_to "Add a order", new_purchase_order_path %></li>
@@ -65,9 +84,15 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Orders
-          </a>
+          <% if request.path == new_purchase_order_item_path || request.path == purchase_orders_path%>
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Orders
+            </a>
+          <% else %>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Orders
+            </a>
+          <% end %>
           <ul class="dropdown-menu">
             <% if current_user.manager? || current_user.admin?%>
               <li><%= link_to "Order a item", new_purchase_order_item_path %></li>
@@ -78,9 +103,26 @@
           </ul>
         </li>
         <% end %>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        <li class="nav-item dropdown">
+          <% if request.path == new_inventory_item_path || request.path == inventory_items_path%>
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Inventory items
+            </a>
+            <% else %>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Inventory items
+            </a>
+          <% end %>
+          <ul class="dropdown-menu">
+            <% if current_user.manager? || current_user.admin? || current_user.mama?%>
+              <li><%= link_to "Connect the product and location", new_inventory_item_path %></li>
+            <% end %>
+            <li><%= link_to "All the items", inventory_items_path %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
         </li>
+        <% end %>
         <% if user_signed_in?%>
         <li class="nav-item">
           <%= link_to "Log out!", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-danger"%>

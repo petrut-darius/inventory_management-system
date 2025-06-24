@@ -11,7 +11,7 @@ class PurchaseOrderItemPolicy < ApplicationPolicy
   end
 
   def update
-    user.admin?
+    user.admin? || user.manager?
   end
 
   def create?

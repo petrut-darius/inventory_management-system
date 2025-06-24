@@ -7,6 +7,7 @@ class InventoryItemsController < ApplicationController
 
   def index
     @inventory_items = InventoryItem.all
+    @inventory_item = InventoryItem.new
   end
 
   def create

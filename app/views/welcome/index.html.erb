@@ -1,6 +1,8 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<% if user_signed_in?%>
-  <%= current_user.first_name %><br>
-  <%= current_user.admin %>
-<% end %>
+<h1>Welcome</h1>
+<br>
+<%= link_to "Product's", products_path %><br>
+<%= link_to "Location's", locations_path%><br>
+<%= link_to "Inventory item's", inventory_items_path%><br>
+<%= link_to "Purchase Order's", purchase_orders_path%><br>
+<%= link_to "Purchase Item's", purchase_order_items_path%><br>
+<%= link_to "Supplier's", suppliers_path%>

@@ -1,4 +1,5 @@
 <h1>All the product's ordered</h1>
+<%= render "layouts/obj", obj: @product_order_item%>
 <hr>
 <% @purchase_order_items.each do |product_ordered|%>
   <p>Name: <%= product_ordered.product.name%></p>

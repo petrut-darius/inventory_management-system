@@ -1,1 +1,8 @@
-<h1></h1>
+<h1>All the Inventory Item's</h1>
+<%= render "layouts/obj", obj: @inventory_item%>
+<hr>
+<% @inventory_items.each do |item|%>
+  <p>Name: <%= item.product.name%></p>
+  <p>Location: <%= item.location.name%></p>
+  <hr>
+<% end %>

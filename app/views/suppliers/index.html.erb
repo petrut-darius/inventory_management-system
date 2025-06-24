@@ -1,4 +1,5 @@
 <h1>All the suppliers</h1>
+<%= render "layouts/obj", obj: @supplier%>
 <hr>
 <% @suppliers.each do |supplier| %>
   <p>Name: <%= supplier.name %></p>
