@@ -13,10 +13,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-  resources :locations, only: [ :new, :create, :show, :index ]
-  resources :products, only: [ :new, :create, :show, :index ]
-  resources :inventory_items, only: [ :new, :create, :show, :index ]
-  resources :suppliers, only: [ :new, :create, :show, :index ]
-  resources :purchase_orders, only: [ :new, :create, :show, :index ]
-  resources :purchase_order_items, only: [ :new, :create, :show, :index ]
+  resources :locations
+  resources :products
+  resources :inventory_items
+  resources :suppliers
+  resources :purchase_orders
+  resources :purchase_order_items
 end

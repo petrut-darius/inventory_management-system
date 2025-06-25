@@ -2,3 +2,4 @@
 
 <p>Quantity: <%= @purchase_order_item.quantity%></p>
 <p>Total cost: <%= @purchase_order_item.cost_price%></p>
+<%= link_to "Delete purchase", purchase_order_item_path(@purchase_order_item), data: { turbo_method: :delete}%>

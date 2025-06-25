@@ -4,3 +4,4 @@
 <p>Email: <%= @supplier.email %></p>
 <p>Phone: <%= @supplier.phone %></p>
 <p>Address: <%= @supplier.address %></p>
+<%= link_to "Delete supplier", supplier_path(@supplier), data: {turbo_method: :delete}%>

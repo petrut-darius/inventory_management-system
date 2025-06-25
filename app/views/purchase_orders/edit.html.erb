@@ -1,0 +1,13 @@
+<h1><%= t('.edit_purchase_order') %></h1>
+
+<%= form_for @purchase_order do |f| %>
+
+  <div class="form-group">
+    <%= f.label :status %>
+    <%= f.select :status, options_for_select([['Pending', 'pending'], ['Cancelled', 'cancelled'], ['Received', 'received']]), class: "form-select" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Edit purchase order", class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,3 +1,4 @@
 <h1><%= @inventory_item.product.name %></h1>
 <p><%= @inventory_item.product.name %> is at <%= @inventory_item.location.name%></p>
 <p>Address: <%= @inventory_item.location.address %></p>
+<%= link_to "Delete inventory item", inventory_item_path(@inventory_item), data: {turbo_method: :delete}%>

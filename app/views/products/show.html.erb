@@ -5,3 +5,5 @@
 <p>Reorder_level: <%= @product.reorder_level%></p>
 <p>Price: <%= @product.price%></p>
 <p>Quantity: <%= @product.quantity%></p>
+<hr>
+<%= link_to "Delete product", product_path(@product), data: {turbo_method: :delete}%>

@@ -1,1 +1,3 @@
-<%= link_to "Create a #{obj.class.name}", send("new_#{obj.class.name.underscore}_path") %>
+<% if current_user.admin? || current_user.manager?%>
+  <%= link_to "Create a #{obj.class.name}", send("new_#{obj.class.name.underscore}_path") %>
+<% end %>
